@@ -1,17 +1,17 @@
 {
-    "name": "alazzi-az/laravel-tamara",
+    "name": "rixtrayker/laravel-tamara",
     "description": "Laravel wrapper for Tamara SDK",
     "keywords": [
         "alazzi-az",
         "laravel",
         "laravel-tamara"
     ],
-    "homepage": "https://github.com/alazzi-az/laravel-tamara",
+    "homepage": "https://github.com/rixtrayker/laravel-tamara",
     "license": "MIT",
     "authors": [
         {
-            "name": "Mohammed Ali Azman",
-            "email": "azmman2012@gmail.com",
+            "name": "Amr M. Elsayed",
+            "email": "cs.elsayed@gmail.com",
             "role": "Developer"
         }
     ],
