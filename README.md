@@ -4,8 +4,8 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/alazzi-az/laravel-tamara.svg?style=flat-square)](https://packagist.org/packages/alazzi-az/laravel-tamara)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/alazzi-az/laravel-tamara/run-tests?label=tests)](https://github.com/alazzi-az/laravel-tamara/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/alazzi-az/laravel-tamara/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/alazzi-az/laravel-tamara/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/alazzi-az/laravel-tamara.svg?style=flat-square)](https://packagist.org/packages/alazzi-az/laravel-tamara)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/alazzi-az/laravel-tamara/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/rixtrayker/laravel-tamara/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/alazzi-az/laravel-tamara.svg?style=flat-square)](https://packagist.org/packages/rixtrayker/laravel-tamara)
 
 Laravel wrapper for Tamara SDK with small amount of changes to make it work with Laravel 9.x.
 

@@ -1,6 +1,6 @@
 {
     "name": "rixtrayker/laravel-tamara",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "description": "Laravel wrapper for Tamara SDK",
     "keywords": [
         "alazzi-az",
@@ -69,7 +69,5 @@
                 "Tamara": "AlazziAz\\Tamara\\Facades\\Tamara"
             }
         }
-    },
-    "minimum-stability": "stable",
-    "prefer-stable": true
+    }
 }
