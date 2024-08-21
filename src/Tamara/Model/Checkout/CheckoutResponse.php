@@ -12,17 +12,23 @@ class CheckoutResponse
 
     public const CHECKOUT_URL = 'checkout_url';
 
+    public const STATUS = 'status';
+
+
     private $orderId;
 
     private $checkoutUrl;
 
     private $checkoutId;
 
+    private $status;
+
     public function __construct(array $response)
     {
         $this->orderId = $response[self::ORDER_ID];
         $this->checkoutUrl = $response[self::CHECKOUT_URL];
         $this->checkoutId = $response[self::CHECKOUT_ID];
+        $this->status = $response[self::STATUS];
     }
 
     public function getOrderId(): string
@@ -39,6 +45,10 @@ class CheckoutResponse
     {
         return $this->checkoutId;
     }
+    public function getStatus()
+    {
+        return $this->status;
+    }
 
     public function toArray(): array
     {
@@ -46,6 +56,7 @@ class CheckoutResponse
             self::ORDER_ID => $this->getOrderId(),
             self::CHECKOUT_URL => $this->getCheckoutUrl(),
             self::CHECKOUT_ID => $this->getCheckoutId(),
+            self::STATUS => $this->getStatus()
         ];
     }
 }

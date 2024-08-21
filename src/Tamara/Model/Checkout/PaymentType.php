@@ -12,6 +12,8 @@ class PaymentType
 
     public const DESCRIPTION = 'description';
 
+    public const DESCRIPTION_AR = 'description_ar';
+
     public const MIN_LIMIT = 'min_limit';
 
     public const MAX_LIMIT = 'max_limit';
@@ -21,6 +23,8 @@ class PaymentType
     private $name;
 
     private $description;
+
+    private $description_ar;
 
     private $minLimit;
 
@@ -34,12 +38,14 @@ class PaymentType
     public function __construct(
         string $name,
         string $description,
+        string $description_ar,
         Money $minLimit,
         Money $maxLimit,
         array $supportedInstalments = []
     ) {
         $this->name = $name;
         $this->description = $description;
+        $this->description_ar = $description_ar;
         $this->minLimit = $minLimit;
         $this->maxLimit = $maxLimit;
         $this->supportedInstalments = $supportedInstalments;
@@ -53,6 +59,11 @@ class PaymentType
     public function getDescription(): string
     {
         return $this->description;
+    }
+
+    public function getDescriptionAr(): string
+    {
+        return $this->description_ar;
     }
 
     public function getMinLimit(): Money
@@ -78,6 +89,7 @@ class PaymentType
         $result = [
             self::NAME => $this->getName(),
             self::DESCRIPTION => $this->getDescription(),
+            self::DESCRIPTION_AR => $this->getDescriptionAr(),
             self::MIN_LIMIT => $this->getMinLimit()->toArray(),
             self::MAX_LIMIT => $this->getMaxLimit()->toArray(),
         ];
