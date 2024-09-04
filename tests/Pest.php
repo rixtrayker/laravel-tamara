@@ -19,7 +19,7 @@ it('should be able to call Notification instance', function () {
     $message = $notificationService->processAuthoriseNotification();
 
     var_dump($message->getOrderId());
-    var_dump($message->getOrderStatus());
+    var_dump($message->getEventType());
     var_dump($message->getData());
     $this->assertInstanceOf(\AlazziAz\Tamara\Tamara\Notification\NotificationService::class, $notificationService);
 });

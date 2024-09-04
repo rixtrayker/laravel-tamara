@@ -81,6 +81,6 @@ class NotificationService
 
     private function createRequest(): Request
     {
-        return Request::createFromGlobals();
+        return request();
     }
 }

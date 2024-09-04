@@ -172,7 +172,7 @@ $notificationService = Tamara::notificationService();
 $message = $notificationService->processAuthoriseNotification();
 // then you can update state of the app e.g.
 $orderId=$message->getOrderReferenceId();
-$orderStatus=$message->getOrderStatus();
+$orderStatus=$message->getEventType();
 //...
 ```
 ## Usage Some  Instance by Laravel Container to get the instance injected config values
