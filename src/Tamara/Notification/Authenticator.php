@@ -6,7 +6,12 @@ namespace AlazziAz\Tamara\Tamara\Notification;
 
 use AlazziAz\Tamara\Tamara\Notification\Exception\ForbiddenException;
 use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 use Symfony\Component\HttpFoundation\Request;
+use Illuminate\Support\Facades\Log;
+use Firebase\JWT\SignatureInvalidException;
+use Firebase\JWT\ExpiredException;
+
 use Throwable;
 
 class Authenticator
@@ -34,14 +39,13 @@ class Authenticator
             throw new ForbiddenException('Access denied.');
         }
 
-        $token = $request->headers->get(self::AUTHORIZATION)
-            ? $this->getBearerToken($request->headers->get(self::AUTHORIZATION))
-            : $request->get(self::TOKEN);
+        $token = $request->get(self::TOKEN);
 
         try {
             $this->decode($token);
         } catch (Throwable $exception) {
-            throw new ForbiddenException('Access denied.');
+            $msg = $exception->getMessage();
+            throw new ForbiddenException('Access denied. ' . $msg);
         }
     }
 
@@ -55,10 +59,28 @@ class Authenticator
     }
 
     /**
-     * @return object
+     * @throws ExpiredException
+     * @throws SignatureInvalidException
+     * @throws \Exception
+     * @return bool
      */
     protected function decode(string $token)
     {
-        return JWT::decode($token, $this->tokenKey, ['HS256']);
+        try{
+            JWT::decode($token, new Key($this->tokenKey, 'HS256'));
+        }
+        catch (ExpiredException $e) {
+            Log::channel('tamara')->info('token expired');
+            throw new ExpiredException();
+        }
+        catch (SignatureInvalidException $e) {
+            Log::channel('tamara')->info('token invalid');
+            throw new SignatureInvalidException();
+        }
+        catch (\Exception $e) {
+            Log::channel('tamara')->info('token error');
+            throw new \Exception();
+        }
+        return true;
     }
 }
